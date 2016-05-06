@@ -13,8 +13,28 @@ public class FileEncrypter {
         this.file = file;
     }
 
+    public FileEncrypter(String name){
+        file = new File(name);
+    }
+
     //return file encrypted
     public File getEncryptFile(){
+        return null;
+    }
+
+    public byte[] getBytesOfFile(){
+
+        try {
+            FileInputStream ifile = new FileInputStream(file);
+            byte[] bytes = new byte[(int)file.length()];
+            ifile.read(bytes,0,(int)file.length());
+            return bytes;
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+        catch (Exception e){
+            e.printStackTrace();
+        }
         return null;
     }
 }
